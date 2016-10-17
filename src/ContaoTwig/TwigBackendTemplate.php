@@ -57,7 +57,7 @@ class TwigBackendTemplate
 		if (isset($GLOBALS['TL_HOOKS']['parseTemplate']) && is_array($GLOBALS['TL_HOOKS']['parseTemplate'])) {
 			foreach ($GLOBALS['TL_HOOKS']['parseTemplate'] as $callback) {
 				$this->import($callback[0]);
-				$this->$callback[0]->$callback[1]($this);
+				$this->{$callback[0]}->{$callback[1]}($this);
 			}
 		}
 
@@ -76,7 +76,7 @@ class TwigBackendTemplate
 		) {
 			foreach ($GLOBALS['TL_HOOKS']['parseBackendTemplate'] as $callback) {
 				$this->import($callback[0]);
-				$strBuffer = $this->$callback[0]->$callback[1](
+				$strBuffer = $this->{$callback[0]}->{$callback[1]}(
 					$strBuffer,
 					$this->strTemplate
 				);
