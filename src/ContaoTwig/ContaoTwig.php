@@ -191,7 +191,7 @@ class ContaoTwig
 		if ($config->isCallInitializationHook() && isset($GLOBALS['TL_HOOKS']['initializeTwig']) && is_array($GLOBALS['TL_HOOKS']['initializeTwig'])) {
 			foreach ($GLOBALS['TL_HOOKS']['initializeTwig'] as $callback) {
 				$this->import($callback[0]);
-				$this->$callback[0]->$callback[1]($this);
+				$this->{$callback[0]}->{$callback[1]}($this);
 			}
 		}
 
